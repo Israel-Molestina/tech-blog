@@ -34,18 +34,20 @@ router.get('/post/:id', async (req, res) => {
         {
           model: User,
           attributes: ['username'],
-          model: Comment,
-          include: [ 
-            {
-              model: User,
-              attributes: ['username']
-            }
-          ]
+          
         },
+        {
+          model: Comment,
+          include: {
+            model: User,
+              attributes: ['username'],
+          }
+        }
       ],
     });
 
     const post = postData.get({ plain: true });
+    console.log(post, "-----post-----");
     res.render('single-post', {
       post,
       logged_in: req.session.logged_in
@@ -57,7 +59,7 @@ router.get('/post/:id', async (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/dashboard');
     return;
   }
 
@@ -66,7 +68,7 @@ router.get('/login', (req, res) => {
 
 router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/dashboard');
     return;
   }
 

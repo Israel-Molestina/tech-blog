@@ -1,0 +1,51 @@
+<section class="bg-dark row">
+    <section class="col-md-3 ms-4 mb-3 text-center">
+        <h1 class="border dynamic-header">
+            The Blog
+        </h1>
+    </section>
+</section>
+
+<main class="container-fluid mt-3">
+
+    <section class="row justify-content-center text-start">
+
+        <section class="col-md-10 justify-content-center text-start align-items-center">
+
+            <section class="row row-cols-1 row-cols-lg-1 g-4 m-4">
+
+
+                <section class="card mt-3 mb-3 px-0">
+                    <section class="card-header text-start">
+                        <h4 class="d-inline">{{post.post_title}}</h4>
+                        <h6 class="d-inline float-end">Posted by {{user.username}} on
+                            {{format_date post.date_created}}</h6>
+                    </section>
+                    <section class="card-body text-start">
+                        <p class="d-inline">{{post.post_content}}</p>
+                        {{#if logged_in}}
+                        <button class="btn btn-primary d-inline float-end" type="add">Add Comment</button>
+                        {{/if}}
+                    </section>
+                </section>
+
+                {{#each post.comments as |comment|}}
+                <section class="card mt-3 mb-3 px-0">
+                    <section class="card-header text-start">
+                        <h4 class="d-inline">Comment by: {{user.username}}</h4>
+                        <h6 class="d-inline float-end">Posted on {{format_date date_created}}</h6>
+                    </section>
+                    <section class="card-body text-start">
+                        <p>{{comment_message}}</p>
+                    </section>
+                </section>
+                {{/each}}
+
+
+            </section>
+
+        </section>
+
+    </section>
+
+</main>
