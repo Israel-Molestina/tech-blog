@@ -15,7 +15,7 @@
             <section class="row row-cols-1 row-cols-lg-1 g-4 m-4">
 
 
-                <section class="card mt-3 mb-3 px-0">
+                <section class="card mt-3 mb-1 px-0">
                     <section class="card-header text-start">
                         <h4 class="d-inline">{{post.post_title}}</h4>
                         <h6 class="d-inline float-end">Posted by {{user.username}} on
@@ -24,22 +24,39 @@
                     <section class="card-body text-start">
                         <p class="d-inline">{{post.post_content}}</p>
                         {{#if logged_in}}
-                        <button class="btn btn-primary d-inline float-end" type="add">Add Comment</button>
+                        <button id="add" class="btn btn-primary d-inline float-end">Add Comment</button>
                         {{/if}}
                     </section>
                 </section>
 
-                {{#each post.comments as |comment|}}
-                <section class="card mt-3 mb-3 px-0">
-                    <section class="card-header text-start">
-                        <h4 class="d-inline">Comment by: {{user.username}}</h4>
-                        <h6 class="d-inline float-end">Posted on {{format_date date_created}}</h6>
+                <section id="comment-sect">
+                    {{#each post.comments as |comment|}}
+                    <section class="card mt-1 mb-1 px-0">
+                        <section class="card-header text-start">
+                            <h4 class="d-inline">Comment by: {{user.username}}</h4>
+                            <h6 class="d-inline float-end">Posted on {{format_date date_created}}</h6>
+                        </section>
+                        <section class="card-body text-start">
+                            <p>{{comment_message}}</p>
+                        </section>
                     </section>
-                    <section class="card-body text-start">
-                        <p>{{comment_message}}</p>
+                    {{/each}}
+                </section>
+
+                <section id="add-sect" >
+                    <section class="card mt-1 mb-1 px-0">
+                        <section class="card-header text-start">
+                            <h4 class="d-inline">Write your comment below</h4>
+                        </section>
+                        <section class="card-body text-start">
+                            <section class="mb-3">
+                                <label for="signupUsername" class="form-label">Comment:</label>
+                                <input type="text" class="form-control" id="comment-message">
+                            </section>
+                            <button id="addComment" class="btn btn-primary d-inline float-end">Submit</button>
+                        </section>
                     </section>
                 </section>
-                {{/each}}
 
 
             </section>
@@ -49,3 +66,4 @@
     </section>
 
 </main>
+<script src="/js/single-post.js"></script>
