@@ -1,0 +1,45 @@
+<section class="bg-dark row">
+    <section class="col-md-3 ms-4 mb-3 text-center">
+        <h1 class="border dynamic-header">
+            Your Dashboard
+        </h1>
+    </section>
+</section>
+
+<main class="container-fluid mt-3">
+
+    <section class="row justify-content-center text-start">
+
+        <section class="col-md-10 justify-content-center text-start align-items-center">
+
+            <section class="row row-cols-1 row-cols-lg-1 g-4 m-4">
+
+                <section class="card mt-3 mb-3 px-0">
+                    <section class="card-header text-start">
+                        <h4 class="d-inline">Edit Post</h4>
+                    </section>
+                    <section class="card-body text-start">
+                        <section class="mb-3">
+                            <label for="signupUsername" class="form-label">Title:</label>
+                            <input type="text" class="form-control" id="title" value="{{post.post_title}}">
+                        </section>
+                        <section class="mb-3">
+                            <label for="signupUsername" class="form-label">Content:</label>
+                            <input type="text" class="form-control" id="content" value="{{post.post_content}}">
+                        </section>
+                        <div class="d-grid gap-2">
+                            <button id="edit" class="btn btn-secondary" type="button">Update Post</button>
+                            <button id="delete" class="btn btn-secondary" type="button">Delete</button>
+                        </div>
+                    </section>
+                </section>
+
+            </section>
+
+        </section>
+
+    </section>
+
+</main>
+
+<script src="/js/edit-post.js"></script>
