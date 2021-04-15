@@ -16,20 +16,19 @@
 
                 <section class="card mt-3 mb-3 px-0">
                     <section class="card-header text-start">
-                        <h4 class="d-inline">Edit Post</h4>
+                        <h4 class="d-inline">Create New Post</h4>
                     </section>
                     <section class="card-body text-start">
                         <section class="mb-3">
-                            <label for="signupUsername" class="form-label">Title:</label>
-                            <input type="text" class="form-control" id="title" value="{{post.post_title}}">
+                            <label for="newTitle" class="form-label">Title:</label>
+                            <input type="text" class="form-control" id="title" placeholder="Title here">
                         </section>
                         <section class="mb-3">
-                            <label for="signupUsername" class="form-label">Content:</label>
-                            <input type="text" class="form-control" id="content" value="{{post.post_content}}">
+                            <label for="newContent" class="form-label">Content:</label>
+                            <input type="text" class="form-control" id="content" placeholder="Content here">
                         </section>
                         <div class="d-grid gap-2">
-                            <button id="edit" class="btn btn-secondary" type="button">Update Post</button>
-                            <button id="delete" class="btn btn-secondary" type="button">Delete</button>
+                            <button id="create" class="btn btn-secondary" type="button">Create</button>
                         </div>
                     </section>
                 </section>
@@ -42,4 +41,5 @@
 
 </main>
 
-<script src="/js/edit-post.js"></script>
+
+<script src="/js/add-post.js"></script>

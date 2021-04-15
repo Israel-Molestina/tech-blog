@@ -31,7 +31,7 @@ const deletePost = async (event) => {
     window.location.toString().split("/").length - 1
   ];
 
-  const response = await fetch(`/api/posts/edit/${id}`, {
+  const response = await fetch(`/api/posts/delete/${id}`, {
     method: "DELETE",
     body: JSON.stringify({ id: id }),
     headers: { "Content-Type": "application/json" },

@@ -32,6 +32,7 @@ Comment.init(
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
+          onDelete: 'CASCADE',
           model: 'post',
           key: 'id',
         },
