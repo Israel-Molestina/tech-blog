@@ -24,4 +24,25 @@ const editPost = async (event) => {
   }
 };
 
+const deletePost = async (event) => {
+  event.preventDefault();
+
+  const id = window.location.toString().split("/")[
+    window.location.toString().split("/").length - 1
+  ];
+
+  const response = await fetch(`/api/posts/edit/${id}`, {
+    method: "DELETE",
+    body: JSON.stringify({ id: id }),
+    headers: { "Content-Type": "application/json" },
+  });
+  console.log(response)
+  if (response.ok) {
+    document.location.replace("/dashboard");
+  } else {
+    alert("Failed to delete post");
+  }
+};
+
+document.querySelector('#delete').addEventListener('click', deletePost);
 document.querySelector('#edit').addEventListener('click', editPost);
